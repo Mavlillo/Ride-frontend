@@ -6,6 +6,7 @@ import Register from "./components/pages/Register";
 import { AuthProvider } from "./components/context/AuthContext";
 import Navbar from "./components/pages/NavBar/Navbar";
 import Vehicle from "./components/pages/Vehicle";
+import Student from "./components/pages/Student";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/Login" component={Login} />
       <Route path="/Register" component={Register} />
       <Route path="/Vehicle" component={Vehicle} />
+      <Route path="/Student" component={Student} />
       <Route component={NotFound} />
       </Switch>
     </div>

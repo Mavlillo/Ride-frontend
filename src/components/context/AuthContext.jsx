@@ -16,8 +16,8 @@ export function AuthProvider ({children}){
     useEffect(() =>{
         const token =localStorage.getItem("token")
         if (token){
-            clearSession(token)
-        }
+            setToken(token)
+            }
     },[])
 
     useEffect(()=>{

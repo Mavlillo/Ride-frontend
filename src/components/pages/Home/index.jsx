@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import clsx from "clsx"
 import axios from "axios"
 import { useAuth } from "../../context/AuthContext"
 import { useLocation } from "wouter"
@@ -20,7 +19,6 @@ export default function Home () {
     const { token,clearSession } = useAuth()
 
   
-
     useEffect(() => {
       if (!token) {
         setLocation("/Login")
@@ -72,22 +70,21 @@ export default function Home () {
            </div>
 
       <div class="p-4 lg:w-1/3">
-        <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-          <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">CATEGORY</h2>
-          <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded dark:bg-gray-800">
+      <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-12 pb-4 rounded-lg overflow-hidden text-center relative">
+          <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded bg-opacity-0">
       <ul class="space-y-2">
          <li>
-            <a href="/Vehicle" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+            <a href="/Vehicle" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:gray-900 hover:bg-gray-100 dark:hover:bg-[#C0C0C0]">
                <span class="flex-1 ml-3 whitespace-nowrap">Vehículos</span>
             </a>
          </li>
          <li>
-            <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+            <a href="/Student" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:gray-900 hover:bg-gray-100 dark:hover:bg-[#C0C0C0]">
                <span class="flex-1 ml-3 whitespace-nowrap">Estudiantes</span>
             </a>
          </li>
          <li>
-            <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+            <a href="/Service" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:gray-900 hover:bg-gray-100 dark:hover:bg-[#C0C0C0]">
                <span class="flex-1 ml-3 whitespace-nowrap">Servicios</span>
             </a>
          </li>

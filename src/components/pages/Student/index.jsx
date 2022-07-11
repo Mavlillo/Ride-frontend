@@ -2,12 +2,11 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { useAuth } from "../../context/AuthContext"
 import { useLocation } from "wouter"
-import CreateVehicleForm from "./components/CreateVehiceForm"
+import CreateStudentForm from "./components/CreateStudentForm"
 import { Link } from "wouter"
 
-
-const fetchAllVehicles =async (token) =>{
-  return axios.get('http://localhost:4000/api/vehicles',{
+const fetchAllStudents =async (token) =>{
+  return axios.get('http://localhost:4000/api/students',{
     headers:{
       Authorization: `Bearer ${token}`
   }    
@@ -15,21 +14,20 @@ const fetchAllVehicles =async (token) =>{
  
 }
 
-export default function Vehicle() {
-    const [vehicles, setVehicles] = useState([])
+export default function Student() {
+    const [students, setStudents] = useState([])
     const [,setLocation] = useLocation()
     const { token,clearSession } = useAuth()
 
-  
 
     useEffect(() => {
       if (!token) {
-        setLocation("/Vehicle")
+        setLocation("/Student")
         return
       }
-        fetchAllVehicles(token)
+        fetchAllStudents(token)
         .then(res => {
-          setVehicles(res.data)
+          setStudents(res.data)
         })
         .catch(err => {
           clearSession()
@@ -37,9 +35,9 @@ export default function Vehicle() {
     },[token, setLocation, clearSession])
 
     const handleRefetch = () => {
-      fetchAllVehicles(token)
+      fetchAllStudents(token)
       .then(res => {
-        setVehicles(res.data)
+        setStudents(res.data)
       })
       .catch(err => {
         clearSession()
@@ -53,24 +51,22 @@ export default function Vehicle() {
             <div class="p-4 lg:w-1/3">
                <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
                  <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">bienvenido</h2>
-                  <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Ingresa tu Vehículo</h1>
-                    <CreateVehicleForm onVehicleCreate={handleRefetch}/>   
+                  <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Ingresa Estudiante</h1>
+                    <CreateStudentForm onStudentCreate={handleRefetch}/>   
                       </div>
                        </div>
 
       <div class="p-4 lg:w-1/3">
         <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-          <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Tus Vehículos</h1>
+          <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Tus Estudiantes</h1>
           <div className="space-y-3">
-          {vehicles.map(vehicle =>(  
-          <div key={vehicle._id} className=" bg-[#fbfbfb] py-3 px-6">
-          <h3 className="text-xl font-bold">{vehicle.patent}</h3>
-          <p className="text-sm mb2">{vehicle.brand}</p>
-          <p className="text-sm mb2">{vehicle.model}</p>
-          <p className="text-sm mb2">{vehicle.year}</p>
-          <p className="text-sm mb2">{vehicle.colour}</p>
-          <p className="text-sm mb2">{vehicle.ability}</p>
-           </div>
+          {students.map(student =>(  
+          <div key={student._id} className=" bg-[#fbfbfb] py-3 px-6">
+          <h3 className="text-xl font-bold">{student.firstName}</h3>
+          <p className="text-sm mb2">{student.lastName}</p>
+          <p className="text-sm mb2">{student.grade}</p>
+          <p className="text-sm mb2">{student.address}</p>
+            </div>
           ))}
            </div>
            </div>
@@ -108,6 +104,7 @@ export default function Vehicle() {
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
                 > Volver
                 </Link>
+
          </div>
       </div>
     </div>
