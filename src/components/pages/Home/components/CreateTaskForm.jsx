@@ -6,11 +6,7 @@ import { useAuth } from "../../../context/AuthContext";
 export default function CreateTaskForm ({onTaskCreate}){
     const { token } = useAuth()
     const { register, handleSubmit} = useForm({
-        defaultValues:{
-            title: 'My title' ,
-            content:'My Description',
-            done: false
-        }
+
     })
 
     const onSubmit =async (data) => {
@@ -22,7 +18,6 @@ export default function CreateTaskForm ({onTaskCreate}){
             onTaskCreate()
     })
     }
-
 
     return (
         <form className="space-y-3 py-4  bg-[#fbfbfb] rounded" onSubmit={handleSubmit(onSubmit)}>
@@ -46,7 +41,17 @@ export default function CreateTaskForm ({onTaskCreate}){
                 id="content"
                 {...register('content')}/>
             </div>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            <div className="flez flex-col">
+                <label htmlFor="value" className="font-bold">
+                   Valor Aprox.
+                </label>
+                <br />
+                <input
+                type="text" 
+                id="value"
+                {...register('value')}/>
+            </div>
+            <button class="bg-slate-500 hover:bg-[#83bb54] text-white font-bold py-2 px-4 rounded-full">
                     Agregar
             </button>
           </form>

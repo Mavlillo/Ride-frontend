@@ -20,8 +20,6 @@ export default function Vehicle() {
     const [,setLocation] = useLocation()
     const { token,clearSession } = useAuth()
 
-  
-
     useEffect(() => {
       if (!token) {
         setLocation("/Vehicle")
@@ -57,10 +55,9 @@ export default function Vehicle() {
                     <CreateVehicleForm onVehicleCreate={handleRefetch}/>   
                       </div>
                        </div>
-
-      <div class="p-4 lg:w-1/3">
-        <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
-          <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Tus Vehículos</h1>
+                       <div class="p-4 lg:w-1/3">
+                       <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-16 pb-24 rounded-lg overflow-hidden text-center relative">
+                      <h1 class="title-font sm:text-2xl text-xl font-medium text-gray-900 mb-3">Tus Vehículos</h1>
           <div className="space-y-3">
           {vehicles.map(vehicle =>(  
           <div key={vehicle._id} className=" bg-[#fbfbfb] py-3 px-6">
@@ -75,12 +72,11 @@ export default function Vehicle() {
            </div>
            </div>
            </div>
-
-      <div class="p-4 lg:w-1/3">
-        <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-12 pb-8 rounded-lg overflow-hidden text-center relative">
+          <div class="p-4 lg:w-1/3">
+          <div class="h-full bg-gray-100 bg-opacity-75 px-8 pt-12 pb-8 rounded-lg overflow-hidden text-center relative">
           <div class="overflow-y-auto py-4 px-3 bg-gray-50 rounded bg-opacity-0">
-      <ul class="space-y-2">
-      <li>
+          <ul class="space-y-2">
+          <li>
             <a href="/" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:gray-900 hover:bg-gray-100 dark:hover:bg-[#C0C0C0]">
                <span class="flex-1 ml-3 whitespace-nowrap">Recorridos</span>
             </a>
@@ -98,20 +94,20 @@ export default function Vehicle() {
          <li>
             <a href="/Service" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:gray-900 hover:bg-gray-100 dark:hover:bg-[#C0C0C0]">
                <span class="flex-1 ml-3 whitespace-nowrap">Servicios</span>
-            </a>
-         </li>
-      </ul>
-   </div>
-   <br />
-                <Link
-                to="/"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                > Volver
-                </Link>
-         </div>
-      </div>
-    </div>
-  </div>
-</section>
+                </a>
+                 </li>
+                  </ul>
+                    </div>
+                     <br />
+                      <Link
+                       to="/"
+                       className="bg-slate-500 hover:bg-[#83bb54] text-white font-bold py-2 px-4 rounded-full"
+                      > Volver
+                      </Link>
+                </div>
+              </div>
+            </div>
+           </div>
+      </section>
     )
   }

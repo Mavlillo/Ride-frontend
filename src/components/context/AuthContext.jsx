@@ -14,11 +14,11 @@ export function AuthProvider ({children}){
     const [token,setToken] = useState(null)
 
     useEffect(() =>{
-        const token =localStorage.getItem("token")
+        const token =localStorage.getItem('token')
         if (token){
             setToken(token)
             }
-    },[])
+    },[token])
 
     useEffect(()=>{
         if(token){
@@ -26,7 +26,7 @@ export function AuthProvider ({children}){
             const decoded = jwtDecode(token)
             setUser(decoded)
         } catch {
-            clearSession(token)
+            clearSession()
         }
         } else {
             setUser(null)
@@ -35,13 +35,13 @@ export function AuthProvider ({children}){
 
     const setSession = token =>{
         setToken(token)
-        localStorage.setItem('token', token)
+       
 
     }
 
     const clearSession = ()=>{
         setToken(null)
-        localStorage.removeItem('token')
+       localStorage.removeItem('token')
      }
 
 return (

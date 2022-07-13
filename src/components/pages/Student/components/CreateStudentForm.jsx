@@ -68,7 +68,7 @@ export default function CreateStudentForm ({onStudentCreate}){
                 id="address"
                 {...register('address')}/>
             </div>     
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            <button class="bg-slate-500 hover:bg-[#83bb54] text-white font-bold py-2 px-4 rounded-full">
                     Agregar
             </button>
           </form>

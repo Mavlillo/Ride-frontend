@@ -22,7 +22,7 @@ export default function Student() {
 
     useEffect(() => {
       if (!token) {
-        setLocation("/Student")
+        setLocation("/")
         return
       }
         fetchAllStudents(token)
@@ -101,7 +101,7 @@ export default function Student() {
    <br />
                 <Link
                 to="/"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                className="bg-slate-500 hover:bg-[#83bb54] text-white font-bold py-2 px-4 rounded-full"
                 > Volver
                 </Link>
 

@@ -61,8 +61,12 @@ export default function Home () {
           <div className="space-y-3">
           {tasks.map(task =>(  
           <div key={task._id} className=" bg-[#fbfbfb] py-3 px-6">
-          <h3 className="text-xl font-bold">{task.title}</h3>
-          <p className="text-sm mb2">{task.content}</p>
+          <p className="text-2xl font-extrabold text-gray-400 tracking-tight sm:text-2xl">Colegio</p>
+          <h3 className="text-2xl font-extrabold text-gray-500 tracking-tight sm:text-2xl">{task.title}</h3>
+          <p className="text-2xl font-extrabold text-gray-400 tracking-tight sm:text-2xl">Trayecto</p>
+          <p className="text-2xl font-extrabold text-gray-500 tracking-tight sm:text-2xl">{task.content}</p>
+          <p className="text-2xl font-extrabold text-gray-400 tracking-tight sm:text-2xl">Valor Aproximado</p>
+          <p className="text-2xl font-extrabold text-gray-500 tracking-tight sm:text-2xl">{task.value}</p>
            </div>
           ))}
            </div>
@@ -91,7 +95,7 @@ export default function Home () {
       </ul>
    </div>
    <br />
-   <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+   <button class="bg-slate-500 hover:bg-[#ff8800] text-white font-bold py-2 px-4 rounded-full"
           onClick={clearSession}>
           Cerrar Sesión
          </button>
